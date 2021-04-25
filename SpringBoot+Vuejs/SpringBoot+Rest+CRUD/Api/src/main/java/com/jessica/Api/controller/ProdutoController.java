@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,12 +69,19 @@ public class ProdutoController {
 	
 		
 		// Deleta varios Produtos 
-	    @DeleteMapping("/produto")
-		@ApiOperation(value="Deleta varios produtos")
-	   public void deletaProdutos(@RequestBody Produtos produtos){
-	   produtoRepository.delete(produtos);
-       }
-			
+	@DeleteMapping("/produto")
+	  public ResponseEntity<HttpStatus> deleteAll() {
+	    try {
+	    	produtoRepository.deleteAll();
+	      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	    } catch (Exception e) {
+	      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+
+	  }
+
+	    
+	   
 	   // Deleta um produto pelo Id 
 	   @DeleteMapping("/produto/{id}")
 	   @ApiOperation(value="Deleta produtos atraves do Id")

@@ -22,8 +22,6 @@ public class Produtos implements Serializable {
 	@Column(name = "Codigo")
 	private String codigo;
 	
-	@Column(name = "Descricao")
-	private String descricao;
 	
 	@Column(name = "Categoria")
 	@Enumerated(value =EnumType.STRING)
@@ -65,13 +63,7 @@ public class Produtos implements Serializable {
 		this.codigo = codigo;
 	}
 
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+	
 
 	public Categoria getCategoria() {
 		return categoria;
@@ -95,7 +87,6 @@ public class Produtos implements Serializable {
 		int result = 1;
 		result = prime * result + ((categoria == null) ? 0 : categoria.hashCode());
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		long temp;
@@ -122,11 +113,6 @@ public class Produtos implements Serializable {
 				return false;
 		} else if (!codigo.equals(other.codigo))
 			return false;
-		if (descricao == null) {
-			if (other.descricao != null)
-				return false;
-		} else if (!descricao.equals(other.descricao))
-			return false;
 		if (id != other.id)
 			return false;
 		if (nome == null) {
@@ -143,8 +129,7 @@ public class Produtos implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Produtos [id=" + id + ", nome=" + nome + ", preco=" + preco + ", codigo=" + codigo + ", descricao="
-				+ descricao + ", categoria=" + categoria + ", status=" + status + "]";
+		return "Produtos [id=" + id + ", nome=" + nome + ", preco=" + preco + ", codigo=" + codigo + ", categoria=" + categoria + ", status=" + status + "]";
 	}
 
 

@@ -1,5 +1,5 @@
 {
-  "name": "front_vuejs",
+  "name": "apifront",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,9 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@syncfusion/ej2-vue-dropdowns": "^19.1.56",
+    "@ocrv/vue-tailwind-pagination": "0.0.4",
+    "@syncfusion/ej2-vue-dropdowns": "^19.1.57",
     "axios": "^0.21.1",
+    "combobox": "^1.0.1",
     "core-js": "^3.6.5",
+    "jw-vue-pagination": "^1.0.3",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1"
   },

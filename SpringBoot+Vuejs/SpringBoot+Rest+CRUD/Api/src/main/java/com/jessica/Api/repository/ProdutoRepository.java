@@ -21,7 +21,8 @@ public interface ProdutoRepository extends JpaRepository<Produtos, Long> {
     List<Categoria>ListarCateg = Arrays.asList(Categoria.values());
     
     List<Status>Listarstatus = Arrays.asList(Status.values());
-		
+
+	
 	
 
 

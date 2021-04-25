@@ -7,9 +7,8 @@ export default {
         return http.get('/produtos');
     },
 
-    salvar: (produto) => {
-
-        return http.post('/produto', produto);
+    create(produto) {
+        return http.post("/produto", produto);
     },
 
     atualizar: (id, produto) => {
@@ -18,6 +17,10 @@ export default {
 
     apagar: (id) => {
         return http.delete(`/produto/${id}`)
+    },
+
+    excluir() {
+        return http.delete(`/produto`)
     },
 
     Buscar: (nome) => {
