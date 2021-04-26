@@ -44,11 +44,36 @@
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Código</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Categoria</th>
-              <th scope="col">Preço</th>
-              <th scope="col">Status</th>
+              <th scope="col">
+                Código
+                <button class="Add-o" @click="ordernarCodigo">
+                  <i class="gg-arrows-exchange-alt-v"></i>
+                </button>
+              </th>
+              <th scope="col">
+                Nome
+                <button class="Add-o" @click="ordernarNome">
+                  <i class="gg-arrows-exchange-alt-v"></i>
+                </button>
+              </th>
+              <th scope="col">
+                Categoria
+                <button class="Add-o" @click="ordernarCategoria">
+                  <i class="gg-arrows-exchange-alt-v"></i>
+                </button>
+              </th>
+              <th scope="col">
+                Preço
+                <button class="Add-o" @click="ordernarPreco">
+                  <i class="gg-arrows-exchange-alt-v"></i>
+                </button>
+              </th>
+              <th scope="col">
+                Status
+                <button class="Add-o" @click="ordernarStatus">
+                  <i class="gg-arrows-exchange-alt-v"></i>
+                </button>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -135,6 +160,22 @@ export default {
       }
       window.location.reload();
     },
+
+    ordernarNome() {
+      this.produtos.sort((a, b) => (a.name > b.name ? 1 : -1));
+    },
+    ordernarCodigo() {
+      this.produtos.sort((a, b) => (a.code > b.code ? 1 : -1));
+    },
+    ordernarPreco() {
+      this.produtos.sort((a, b) => (a.price > b.price ? 1 : -1));
+    },
+    ordernarCategoria() {
+      this.produtos.sort((a, b) => (a.category > b.category ? 1 : -1));
+    },
+    ordernarStatus() {
+      this.produtos.sort((a, b) => (a.status > b.status ? 1 : -1));
+    },
   },
 };
 </script>
@@ -183,6 +224,16 @@ header {
   padding-top: 10px;
   margin-left: 100px;
   width: 1350px;
+}
+.Add-o {
+ padding: 5px;
+  cursor: pointer;
+  border: 0;
+  background: #cd5c5c;
+  outline: none;
+  border-radius: 15px;
+  font-weight: bold;
+  color: #eee;
 }
 
 .Add {
@@ -317,5 +368,35 @@ header {
   bottom: 0;
   left: 4px;
   transform: rotateX(60deg);
+}
+.gg-arrows-exchange-alt-v {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 14px;
+  height: 16px;
+}
+.gg-arrows-exchange-alt-v::after,
+.gg-arrows-exchange-alt-v::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 2px;
+  background: currentColor;
+  border-radius: 4px;
+}
+.gg-arrows-exchange-alt-v::before {
+  height: 6px;
+  transform: rotate(-45deg);
+  box-shadow: 13px -2px 0;
+  top: 10px;
+  left: 2px;
+}
+.gg-arrows-exchange-alt-v::after {
+  height: 12px;
+  box-shadow: -4px 4px 0;
+  right: 4px;
 }
 </style>
